@@ -12,15 +12,16 @@
             -webkit-tap-highlight-color: transparent;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             overflow-x: hidden;
-            overflow-y: auto;
             background: #000;
-            min-height: 100vh;
             width: 100vw;
             position: relative;
-            touch-action: pan-y;
         }
 
         /* Dynamic Gradient Background */
@@ -92,8 +93,6 @@
         .container {
             position: relative;
             z-index: 3;
-            min-height: 100vh;
-            padding: 0;
         }
 
         /* Hero Section with 3D */
@@ -191,23 +190,6 @@
             backdrop-filter: blur(10px);
         }
 
-        .scroll-indicator {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 14px;
-            letter-spacing: 2px;
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        .scroll-arrow {
-            display: block;
-            font-size: 28px;
-            margin-top: 10px;
-        }
-
         /* Photos Section - 3D Carousel Style */
         .photos-section {
             min-height: 100vh;
@@ -215,7 +197,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 40px 20px;
+            padding: 60px 20px;
             perspective: 1500px;
         }
 
@@ -251,6 +233,10 @@
 
         .photo-card:nth-child(2) {
             animation-delay: 1s;
+        }
+
+        .photo-card:last-child {
+            margin-bottom: 0;
         }
 
         @keyframes cardFloat {
@@ -359,6 +345,10 @@
         /* Wishes Cards */
         .wishes-section {
             padding: 60px 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .wish-card {
@@ -376,6 +366,10 @@
             transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
             position: relative;
             overflow: hidden;
+        }
+
+        .wish-card:last-child {
+            margin-bottom: 0;
         }
 
         .wish-card::after {
@@ -437,6 +431,10 @@
         .final-message {
             padding: 60px 20px;
             text-align: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .message-box {
@@ -596,6 +594,19 @@
             letter-spacing: 3px;
             font-weight: 600;
         }
+
+        /* Responsive - smaller phones */
+        @media (max-width: 380px) {
+            .name {
+                font-size: 56px;
+            }
+            .section-title {
+                font-size: 28px;
+            }
+            .wish-icon {
+                font-size: 60px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -621,10 +632,6 @@
                 <h1 class="name">DEEDAR ALI</h1>
                 <p class="subtitle">Wishing You an Amazing Birthday!</p>
                 <p class="date">NOVEMBER 12TH</p>
-            </div>
-            <div class="scroll-indicator">
-                SWIPE UP
-                <span class="scroll-arrow">↓</span>
             </div>
         </section>
 
